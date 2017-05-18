@@ -21,8 +21,8 @@ ___
 ### Languages?
 
 * HTML, CSS, Javascript, PHP.
-* Jaravel Framework
-* Bootstrap
+* [Laravel Framework](https://www.laravel.com)
+* [Bootstrap](http://getbootstrap.com)
 ___
 
 ### Why are you doing this?
