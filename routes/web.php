@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('staticpages/about');
 });
+
+Route::get('/faq', function () {
+    return view('staticpages/faq');
+});

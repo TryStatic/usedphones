@@ -7,6 +7,11 @@
 
 @section('maincontent') {{-- This is the main content that this file will be providing to the master layout --}}
 
+    <script type="text/javascript">
+        // Removing the Container Class as our homepage is the only one that doesn't need it.
+        document.getElementById("maincointainer").classList.remove("container");
+
+    </script>
 
     <!-- Row 1 -->
     <div class="container-fuid custom-row1">

@@ -56,7 +56,7 @@
                                aria-expanded="false">More<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/about">About us</a></li>
-                                <li><a href="#">FAQ: Questions and Answers</a></li>
+                                <li><a href="/faq">FAQ: Questions and Answers</a></li>
                                 <li><a href="#">Support</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li class="dropdown-header">Technical</li>
@@ -97,7 +97,9 @@
 
 
         <main class="main">
-            @yield('maincontent')
+            <div id="maincointainer" class="container" style="padding-bottom: 25px">
+                @yield('maincontent')
+            </div>
         </main>
 
 
@@ -122,14 +124,12 @@
                                 <li><a href="#"> Create Sell Listing </a></li>
                                 <li><a href="#"> View Sell Orders </a></li>
                                 <li><a href="#"> Edit your Listing </a></li>
-                                <li><a href="#"> Delete your Listing </a></li>
                             </ul>
                         </div>
                         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                             <h3> HELP </h3>
                             <ul>
-                                <li><a href="#"> Help Page </a></li>
-                                <li><a href="#"> FAQ: Questions and Answers </a></li>
+                                <li><a href="/faq"> FAQ: Questions and Answers </a></li>
                                 <li><a href="#"> Support </a></li>
                                 <li><a href="#"> Market Policies </a></li>
                             </ul>
@@ -139,8 +139,6 @@
                             <ul>
                                 <li><a href="/about"> Who we are </a></li>
                                 <li><a href="#"> Where to find us </a></li>
-                                <li><a href="#"> Why we are doing this </a></li>
-                                <li><a href="#"> How we accomplished this </a></li>
                             </ul>
                         </div>
                         <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
@@ -155,11 +153,11 @@
                                 </li>
                             </ul>
                             <ul class="social">
-                                <li><a href="#"> <i class="fa fa-facebook">   </i> </a></li>
-                                <li><a href="#"> <i class="fa fa-twitter">   </i> </a></li>
-                                <li><a href="#"> <i class="fa fa-google-plus">   </i> </a></li>
-                                <li><a href="#"> <i class="fa fa-pinterest">   </i> </a></li>
-                                <li><a href="#"> <i class="fa fa-youtube">   </i> </a></li>
+                                <li><a href="http://facebook.com" target="_blank"> <i class="fa fa-facebook">   </i> </a></li>
+                                <li><a href="http://twitter.com" target="_blank"> <i class="fa fa-twitter">   </i> </a></li>
+                                <li><a href="http://google.com" target="_blank"> <i class="fa fa-google-plus">   </i> </a></li>
+                                <li><a href="http://pinterest.com" target="_blank"> <i class="fa fa-pinterest">   </i> </a></li>
+                                <li><a href="http://youtube.com" target="_blank"> <i class="fa fa-youtube">   </i> </a></li>
                             </ul>
                         </div>
                     </div>

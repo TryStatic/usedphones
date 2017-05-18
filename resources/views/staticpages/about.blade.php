@@ -1,7 +1,7 @@
 @extends('layouts.masterpage') {{-- We'll be using the master layout page. --}}
 
 
-@section('title', 'Home') {{-- This specific section has it's own title of course and that's home --}}
+@section('title', 'About us') {{-- This specific section has it's own title of course and that's home --}}
 
 
 
@@ -14,7 +14,6 @@
         }
     </style>
 
-    <div class="container" style="padding-bottom: 25px">
         <!-- Introduction Row -->
         <div class="row panel panel-default">
             <div class="col-lg-12 panel-body">
@@ -78,7 +77,6 @@
                 <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
             </div>
         </div>
-    </div>
 
 
 @endsection
