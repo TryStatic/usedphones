@@ -44,7 +44,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand brand-text" href="#">Usedphones</a>
+                    <a class="navbar-brand brand-text" href="/">Usedphones</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav custom-font">
@@ -55,7 +55,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                aria-expanded="false">More<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Help</a></li>
+                                <li><a href="/about">About us</a></li>
                                 <li><a href="#">FAQ: Questions and Answers</a></li>
                                 <li><a href="#">Support</a></li>
                                 <li role="separator" class="divider"></li>
@@ -137,7 +137,7 @@
                         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                             <h3> ABOUT US </h3>
                             <ul>
-                                <li><a href="#"> Who we are </a></li>
+                                <li><a href="/about"> Who we are </a></li>
                                 <li><a href="#"> Where to find us </a></li>
                                 <li><a href="#"> Why we are doing this </a></li>
                                 <li><a href="#"> How we accomplished this </a></li>

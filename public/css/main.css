@@ -109,7 +109,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-
+    margin-bottom: 0px;
+    padding-bottom: 10px;
 }
 
 /*****************************************************************************************************************
@@ -318,8 +319,11 @@ p {
 
 .main {
     /*background-color: #BAC1C8;*/
-    padding-top: 0px;
+    padding-top: 10px;
     margin-bottom: 0px;
+    background-color: #EDF6FF;
+    min-height: 300px;
+
 }
 
 .custom-row1 {
