@@ -7,10 +7,50 @@
 
 @section('maincontent') {{-- This is the main content that this file will be providing to the master layout --}}
 
+    <style>
+        .custom-row1 {
+            background-color: #EDF6FF;
+        }
+
+        .custom-row1 h1 {
+            margin-top: 0;
+            margin-botton: 0;
+            line-height: 0px;
+        }
+
+        .custom-row1 p sub {
+            font-style: italic;
+        }
+
+        .custom-row1 .jumbotron {
+            background-color: transparent;
+            margin-bottom: 0;
+        }
+
+        .custom-row2 {
+            margin-top: 10px;
+            background-color: #F9FCFF;
+        }
+
+        .custom-row3 {
+            background-color: #EDF6FF;
+        }
+
+        .resize-logo {
+            margin: 0 auto;
+            max-width: 258px; 
+            max-height: 274px; 
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+    </style>
+
+
     <script type="text/javascript">
         // Removing the Container Class as our homepage is the only one that doesn't need it.
         document.getElementById("maincointainer").classList.remove("container");
-
     </script>
 
     <!-- Row 1 -->
