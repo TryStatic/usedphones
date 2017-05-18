@@ -22,4 +22,8 @@ class PagesController extends Controller {
 		return view('pages/faq');
 	}
 
+	public function getSupport() {
+		return view('pages/support');
+	}
+
 }
