@@ -11,15 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+
+Route::get('/', 'PagesController@getHome');
+
+Route::get('about', 'PagesController@getAbout');
+
+Route::get('faq', 'PagesController@getfaq');
 
 
-Route::get('/about', function () {
-    return view('staticpages/about');
-});
-
-Route::get('/faq', function () {
-    return view('staticpages/faq');
-});
