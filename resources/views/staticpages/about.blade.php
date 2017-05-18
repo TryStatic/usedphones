@@ -1,7 +1,7 @@
 @extends('layouts.masterpage') {{-- We'll be using the master layout page. --}}
 
 
-@section('title', 'About us') {{-- This specific section has it's own title of course and that's home --}}
+@section('title', ' | About us') {{-- This specific section has it's own title of course and that's home --}}
 
 
 
