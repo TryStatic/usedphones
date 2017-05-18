@@ -23,7 +23,7 @@
                             <h3> HELP </h3>
                             <ul>
                                 <li><a href="/faq"> FAQ: Questions and Answers </a></li>
-                                <li><a href="#"> Support </a></li>
+                                <li><a href="/support"> Support </a></li>
                                 <li><a href="#"> Market Policies </a></li>
                             </ul>
                         </div>

@@ -21,7 +21,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/about">About us</a></li>
                                 <li><a href="/faq">FAQ: Questions and Answers</a></li>
-                                <li><a href="#">Support</a></li>
+                                <li><a href="/support">Support</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li class="dropdown-header">Technical</li>
                                 <li><a href="#">Market Policies</a></li>
