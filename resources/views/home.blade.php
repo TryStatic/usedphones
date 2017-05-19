@@ -71,7 +71,7 @@
 
         <div cass="row">
             <div class="col-xs-12">
-                <h2>Featured Pieces</h2>
+                <h2>Featured Listings</h2>
             </div>
         </div>
         <div class="row">

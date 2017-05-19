@@ -8,13 +8,13 @@
 @section('maincontent') {{-- This is the main content that this file will be providing to the master layout --}}
 
 
-    <div class="panel-group" id="faqAccordion">
+    <div class="panel-group panel panel-default" id="faqAccordion" style="margin-top: 25px">
         
-        <div>
+        <div class= "panel-heading">
             <h3>Frequently Asked Questions</h3>
         </div>
-
-        <div class="panel panel-default ">
+        <div class="panel-body">
+        <div class="panel panel-default">
             <div class="panel-heading accordion-toggle question-toggle collapsed" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question0">
                  <h4 class="panel-title">
                     <a href="#" class="ing">Q: How does a shepherd count his flock without falling asleep?</a>
@@ -165,7 +165,7 @@
                 </div>
             </div>
         </div>
-        
+        </div>
     </div>
     <!--/panel-group-->
 

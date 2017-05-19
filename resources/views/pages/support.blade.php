@@ -8,6 +8,7 @@
 @section('maincontent') {{-- This is the main content that this file will be providing to the master layout --}}
 
 
+<div class="panel panel-default" style="margin-top: 25px">
 
 <div class="jumbotron jumbotron-sm" style="background: transparent;">
     <div class="container">
@@ -86,5 +87,6 @@
     </div>
 </div>
 
+</div>
 
 @endsection
