@@ -7,6 +7,11 @@
 
 @section('maincontent') {{-- This is the main content that this file will be providing to the master layout --}}
 
-
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>Primitive Creation of a Listing</h1>
+                <hr />
+            </div>
+        </div>
 
 @endsection
