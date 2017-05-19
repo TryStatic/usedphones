@@ -20,4 +20,4 @@ Route::get('faq', 'PagesController@getFaq');
 
 Route::get('support', 'PagesController@getSupport');
 
-
+Route::resource('listings', 'ListingsController');
