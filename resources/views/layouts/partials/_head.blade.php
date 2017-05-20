@@ -21,6 +21,6 @@
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Slabo+27px" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro|Slabo+27px" rel="stylesheet">
     </head>
 
