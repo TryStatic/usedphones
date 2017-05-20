@@ -37,7 +37,7 @@
             <div class="col-lg-4 col-sm-6 text-center">
                 <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
                 <h3>Johnathan Cranz
-                    <small>Cutting Boutgatsa with Laser</small>
+                    <small>Bad Bold Guy</small>
                 </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint.</p>
             </div>
