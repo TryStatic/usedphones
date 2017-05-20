@@ -4,6 +4,28 @@
 @section('title', '| Create') {{-- Sending this page's title to the master layout for the title --}}
 
 
+@section('additional_scripts') {{-- We'll be providing additional scripts to the masterpage. Thise will be loaded at the bottom --}}
+
+	<script src="{{ asset('js/bootstrap-spinedit.js') }}"></script>
+
+	<script type="text/javascript">
+
+	    $('.aSpinEdit').spinedit({
+	    	value: 200,
+	        numberOfDecimals: 2,
+			minimum: 10,
+			maximum: 2000,
+			step: 10
+	    });
+		$('.aSpinEdit').on("valueChanged", function (e) {
+			finalval = e.value + 20.0;
+			$('.finalval').text(finalval.toFixed(2));
+	    });
+
+				
+	</script>
+@endsection
+
 
 @section('maincontent') {{-- This is the main content that this file will be providing to the master layout --}}
 
@@ -19,6 +41,8 @@
 		font-weight: bold;
 	}
 </style>
+
+<link rel="stylesheet" href="{{ asset('css/bootstrap-spinedit.css') }}"> <!-- This Links inside the body, OH WELL -->
 
 
 <div class="row panel panel-default" style="margin-top: 25px">
@@ -36,7 +60,7 @@
 			<form method="POST" action="{{-- route('posts.store') --}}">
 
 				<div class="panel panel-primary">
-					<div class="panel-heading">'
+					<div class="panel-heading">
 						Description & Condition
 					</div>
 					<div class="panel-body">
@@ -154,17 +178,34 @@
 					<div class="panel-heading">Payment Information</div>
 					<div class="panel-body">
 
-						<span class="bold">Ask Price *:</span>
-						<p>Specify the amount you'll get paid.</p>
 
+						<style>
+							.vparent {
+								  position: relative;
+								  height: 90px;
+							}
+							.vchild {
+								  position: absolute;
+								  top: 50%;
+								  transform: translateY(-50%);
+								  font-size: 18px;
+							}
+						</style>
 
-						
-
-
-
-
-
-
+			            <div class="row">
+			            	<div class="col-sm-3" >
+					            <div class="form-group">
+					                <label class="control-label" for="inputGroup">Ask Price *: </label>
+					                <div class="input-group">
+					                    <input type="text" class="form-control aSpinEdit" id="inputGroup"/>
+					                    <span class="input-group-addon">
+					                        <i class="glyphicon glyphicon-euro"></i>
+					                    </span>
+					                </div>
+					            </div>
+					        </div>
+							<div class="col-sm-9 vparent"><span class="vchild">&nbsp;+&nbsp;&nbsp;&nbsp;20&euro; (Sale Fee)&nbsp;&nbsp;= <span class="finalval bold">230.00</span>&euro; (Total Price shown to Buyers)</span></div>
+						</div>
 
 
 						<div class="form-group">

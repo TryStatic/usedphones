@@ -25,7 +25,7 @@
 
 
         @include ('layouts.partials._scripts') {{-- Seperate pages might have individual scripts so these are the global ones --}}
-
+        @yield('additional_scripts') {{-- So that an individual is able to provide additional scripts only for itself --}}
 
 
 
