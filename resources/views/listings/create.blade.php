@@ -45,8 +45,8 @@
 <link rel="stylesheet" href="{{ asset('css/bootstrap-spinedit.css') }}"> <!-- This Links inside the body, OH WELL -->
 
 
-<div class="row panel panel-default" style="margin-top: 25px">
-	<div class="col-md-8 col-md-offset-2" style="margin-top: 25px">
+<div class="row panel panel-default" style="margin-top: 25px; margin-bottom: 25px">
+	<div class="col-md-8 col-md-offset-2" style="margin-top: 25px; margin-bottom: 25px">
 		
 		<h1 style="margin-bottom: 0px">Create new Listing</h1>
 		<hr style="margin-top: 2px; margin-bottom: 25px;">
@@ -65,13 +65,17 @@
 					</div>
 					<div class="panel-body">
 
-
+						<!-- Headline -->
 						<div class="form-group">
 							<label for="headline">Headline *:</label>
 							<p>A short description of your device and listing.</p>
 							<input id="headline" name="headline" class="form-control">
 						</div>
 
+
+
+
+						<!-- Description -->
 						<div class="form-group">
 							<label for="description">Description *:</label>
 							<p>A short description of your device and listing.</p>
@@ -79,6 +83,10 @@
 							</textarea>
 						</div>
 
+
+
+
+						<!-- Overall Device Condition -->
 						<div class="row">
 							<div class="col-xs-12">
 								<span class="bold">Overall Device Condition *:</span>
@@ -147,6 +155,21 @@
 							</div>
 						</div>
 
+
+
+
+						<!-- Damage Description -->
+						<div class="form-group">
+							<label for="description">Damage Description / Repair History:</label>
+							<p>Please describe any imperfections, damage the device has sustained, and/or repairs made. Leave blank for none.</p>
+							<textarea id="description" name="description" class="form-control" rows="5" maxlength="1500">
+							</textarea>
+						</div>
+
+
+
+
+						<!-- Refurbished -->
 						<div>
 							<span class="bold">Refurbished?:</span>
 							<p>Is this a refurbished and/or rebuilt device?</p>
@@ -158,8 +181,14 @@
 							</label>
 						</div>
 
+
+
+
 						<br />
 
+
+
+						<!-- Original Owner -->
 						<div>
 							<span class="bold">Original Owner?:</span>
 							<p>Are you the original owner of the device? Answer No if you did not buy this device brand new from a reputable retailer.</p>
@@ -192,6 +221,10 @@
 							}
 						</style>
 
+
+
+
+						<!-- Asking Price -->
 			            <div class="row">
 			            	<div class="col-sm-3" >
 					            <div class="form-group">
@@ -208,6 +241,9 @@
 						</div>
 
 
+
+
+						<!-- Paypal E-maill Address -->
 						<div class="form-group">
 							<label for="title">PayPal Email *:</label>
 							<p>Your PayPal email address used to accept payment for your device.</p>
@@ -221,17 +257,32 @@
 					<div class="panel-heading">Device Information</div>
 					<div class="panel-body">
 
+
+
+
+						<!-- Device Color -->
 						<div class="form-group">
 							<label for="title">Device Color *:</label>
 							<p>Please select the device's color.</p>
-							<input id="title" name="title" class="form-control">
+								<label class="radio-inline bold"> <input type="radio" name="season" id="seasonSummer" value="Black" checked> Black </label>
+								<label class="radio-inline bold"> <input type="radio" name="season" id="seasonWinter" value="Blue"> Blue </label>
+								<label class="radio-inline bold"> <input type="radio" name="season" id="seasonWinter" value="Gold"> Gold </label>
+								<label class="radio-inline bold"> <input type="radio" name="season" id="seasonWinter" value="White"> White </label>
+								<label class="radio-inline bold"> <input type="radio" name="season" id="seasonWinter" value="Other"> Other (specify) </label>
 						</div>
 
+
+
+						<!-- Device Storage -->
 						<div class="form-group">
 							<label for="title">Device Storage *:</label>
 							<p>Please select the device's storage.</p>
-							<input id="title" name="title" class="form-control">
-						</div>
+								<label class="radio-inline bold"> <input type="radio" name="season" id="seasonSummer" value="16GB" checked> 16GB </label>
+								<label class="radio-inline bold"> <input type="radio" name="season" id="seasonWinter" value="32GB"> 32GB </label>
+								<label class="radio-inline bold"> <input type="radio" name="season" id="seasonWinter" value="64GB"> 64GB </label>
+								<label class="radio-inline bold"> <input type="radio" name="season" id="seasonWinter" value="128GB"> 128GB </label>
+								<label class="radio-inline bold"> <input type="radio" name="season" id="seasonWinter" value="Other"> Other (specify) </label>
+							</div>
 					</div>
 				</div>
 
@@ -240,17 +291,39 @@
 					<div class="panel-heading">Accessories</div>
 					<div class="panel-body">
 
+
+
+
+						<!-- Inlcuded Accessories -->
 						<div class="form-group">
 							<label for="title">Included Accessories</label>
 							<p>Please check the accessories you will be including. <span class="bold">The device's battery is required.</span></p>
-							<input id="title" name="title" class="form-control">
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td><input type="checkbox" value=""></td>
+										<td>Origial Box</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" value=""></td>
+										<td>USB Cable</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" value=""></td>
+										<td>A/C Adapter</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" value=""></td>
+										<td>MicroUSD Card</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" value=""></td>
+										<td>Car Charger</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 
-						<div class="form-group">
-							<label for="title">Device Storage *:</label>
-							<p>Please select the device's storage.</p>
-							<input id="title" name="title" class="form-control">
-						</div>
 					</div>
 				</div>
 
@@ -266,12 +339,19 @@
 							</ul>
 						</p>
 
+
+
+
+						<!-- Country -->
 						<div class="form-group">
 							<label for="title">Country *:</label>
 							<p>The country this listing is posted from.</p>
 							<input id="title" name="title" class="form-control">
 						</div>
 
+
+
+						<!-- Ship Location -->
 						<div class="form-group">
 							<label for="title">Ship From Location *:</label>
 							<p>The location (e.g. city and state) you will ship from.</p>
@@ -280,7 +360,7 @@
 					</div>
 				</div>
 
-				<input type="submit" value="Create Post" class="btn btn-success btn-lg btn-block">
+				<input type="submit" value="Create new Listing" class="btn btn-success btn-lg btn-block">
 				<input type="hidden" name="_token" value="{{ Session::token() }}">
 			</form>
 		</div>
