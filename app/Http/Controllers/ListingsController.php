@@ -21,9 +21,11 @@ class ListingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($category = null)
     {
-        return view('listings/create');
+        if($category == null || !$this->validCategory($category)) // If the category is null or is not one of the valid categories hard coded.
+            return view('listings/category'); // Show him the category selection view.
+        else return view('listings/create', ['category' => $category]); // Otherwise forward him to the create listing view
     }
 
     /**
@@ -80,5 +82,12 @@ class ListingsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function validCategory($category) {
+
+        if($category == "iphone" || $category == "ipad" || $category == "smartphone" || $category == "tablet")
+            return true;
+        return false;
     }
 }
