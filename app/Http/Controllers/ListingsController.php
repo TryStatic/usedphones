@@ -13,7 +13,7 @@ class ListingsController extends Controller
      */
     public function index()
     {
-        //
+        return "index";
     }
 
     /**
@@ -38,7 +38,8 @@ class ListingsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $listing = new listing();
+        return "Stored";
     }
 
     /**
@@ -49,7 +50,7 @@ class ListingsController extends Controller
      */
     public function show($id)
     {
-        //
+        return "Showid";
     }
 
     /**
@@ -60,7 +61,7 @@ class ListingsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return "edit";
     }
 
     /**
@@ -72,7 +73,7 @@ class ListingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return "update";
     }
 
     /**
@@ -83,7 +84,7 @@ class ListingsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return "destroy";
     }
 
     private function validCategory($category) {
