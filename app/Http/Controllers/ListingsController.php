@@ -23,9 +23,11 @@ class ListingsController extends Controller
      */
     public function create($category = null)
     {
-        if($category == null || !$this->validCategory($category)) // If the category is null or is not one of the valid categories hard coded.
+        if($category == null) // If the category is null or is not one of the valid categories hard coded.
             return view('listings/category'); // Show him the category selection view.
-        else return view('listings/create', ['category' => $category]); // Otherwise forward him to the create listing view
+        else if($this->validCategory($category))
+            return view('listings/create', ['category' => $category]); // Otherwise forward him to the create listing view
+        else return "404"; // TODO: Add actual 404
     }
 
     /**
