@@ -12,8 +12,8 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav custom-font">
-                        <li><a href="#">View and Buy</a></li>
-                        <li><a href="#">Place and Sell</a></li>
+                        <li><a href="/listings">View and Buy</a></li>
+                        <li><a href="/listings/create">Place and Sell</a></li>
                         <li><a href="#">Search</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
