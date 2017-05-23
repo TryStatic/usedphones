@@ -20,4 +20,6 @@ Route::get('faq', 'PagesController@getFaq');
 
 Route::get('support', 'PagesController@getSupport');
 
-Route::resource('listings', 'ListingsController');
+
+Route::get('listings/create/{category?}', 'ListingsController@create')->name('listings.create');
+Route::resource('listings', 'ListingsController', ['except' => ['create'] ]);
