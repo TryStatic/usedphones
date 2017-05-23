@@ -1,7 +1,7 @@
 @extends('layouts.masterpage') {{-- We'll be extending the master layout page. --}}
 
 
-@section('title', '| Create') {{-- Sending this page's title to the master layout for the title --}}
+@section('title', '| Creating new Listing') {{-- Sending this page's title to the master layout for the title --}}
 
 
 @section('additional_scripts') {{-- We'll be providing additional scripts to the masterpage. Thise will be loaded at the bottom --}}
@@ -48,7 +48,7 @@
 <div class="row panel panel-default" style="margin-top: 25px; margin-bottom: 25px">
 	<div class="col-md-8 col-md-offset-2" style="margin-top: 25px; margin-bottom: 25px">
 		
-		<h1 style="margin-bottom: 0px">Create new Listing</h1>
+		<h1 style="margin-bottom: 0px">Creating a new {{ $category }} listing</h1>
 		<hr style="margin-top: 2px; margin-bottom: 25px;">
 		<div class="panel panel-info">
 			<div class="panel-heading">
@@ -78,7 +78,7 @@
 						<!-- Description -->
 						<div class="form-group">
 							<label for="description">Description *:</label>
-							<p>A short description of your device and listing.</p>
+							<p>Describe in detail your device and what is included for the buyer.</p>
 							<textarea id="description" name="description" class="form-control" rows="10" maxlength="3000">
 							</textarea>
 						</div>
