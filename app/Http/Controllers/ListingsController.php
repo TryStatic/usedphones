@@ -115,7 +115,7 @@ class ListingsController extends Controller
         $listing->save();
     
 
-        return $listing['id'];
+        return redirect()->route('listings.show', $listing->id);
     }
 
     /**
