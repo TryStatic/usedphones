@@ -100,20 +100,6 @@
 <link rel="stylesheet" href="{{ asset('css/bootstrap-spinedit.css') }}"> <!-- This Links inside the body, OH WELL -->
 <link href="http://blazeworx.com/flags.css" rel="stylesheet">
 
-
-@if (count($errors) > 0)
-<div class="row alert alert-danger" style="">
-	<div class="col-xs-12">
-		<p>One or more errors were encouneterd after you submitted your listing.</p>
-		<ul>
-			@foreach ($errors->all() as $error)
-				<li class="bold">{{ $error }}</li>
-			@endforeach
-		</ul>
-	</div>
-</div>
-@endif
-
 <div class="row panel panel-default" style="margin-top: 25px; margin-bottom: 25px">
 	<div class="col-md-8 col-md-offset-2" style="margin-top: 25px; margin-bottom: 25px">
 		

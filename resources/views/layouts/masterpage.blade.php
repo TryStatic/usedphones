@@ -14,7 +14,7 @@
 
         <main class="main">
             <div id="maincointainer" class="container" style="padding-bottom: 25px">
-
+                @include('layouts.partials._messages')
                 @yield('maincontent')
 
             </div>

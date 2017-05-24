@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 Use App\Listing;
+use Session;
 
 class ListingsController extends Controller
 {
@@ -114,6 +115,7 @@ class ListingsController extends Controller
 
         $listing->save();
     
+        Session::flash('success', 'You have successfully added a new listing.');
 
         return redirect()->route('listings.show', $listing->id);
     }
