@@ -15,7 +15,25 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('headline', 64);
+            $table->text('description');
+            $table->enum('condition', ['mint', 'good', 'fair', 'new']);
+            $table->text('dmgdescription')->nullable();
+            $table->boolean('refurbished');
+            $table->boolean('originalowner');
+            $table->double('askingprice', 10, 2)->unsigned();
+            $table->string('paypalemail');
+            $table->string('devicecolor');
+            $table->string('devicestorage');
+            $table->boolean('boxincluded');
+            $table->boolean('usbincluded');
+            $table->boolean('adapterincluded');
+            $table->boolean('microusbincluded');
+            $table->boolean('carchargedincluded');
+            $table->string('country', 10);
+            $table->string('shiplocation', 64);
             $table->timestamps();
+
         });
     }
 
