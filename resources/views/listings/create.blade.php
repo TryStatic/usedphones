@@ -31,7 +31,7 @@
 		    $('#createlisting').validate({
 		        rules: {
 		            headline: {
-		                minlength: 2,
+		                minlength: 6,
 		                required: true
 		            },
 		            description: {
@@ -100,6 +100,20 @@
 <link rel="stylesheet" href="{{ asset('css/bootstrap-spinedit.css') }}"> <!-- This Links inside the body, OH WELL -->
 <link href="http://blazeworx.com/flags.css" rel="stylesheet">
 
+
+@if (count($errors) > 0)
+<div class="row alert alert-danger" style="">
+	<div class="col-xs-12">
+		<p>One or more errors were encouneterd after you submitted your listing.</p>
+		<ul>
+			@foreach ($errors->all() as $error)
+				<li class="bold">{{ $error }}</li>
+			@endforeach
+		</ul>
+	</div>
+</div>
+@endif
+
 <div class="row panel panel-default" style="margin-top: 25px; margin-bottom: 25px">
 	<div class="col-md-8 col-md-offset-2" style="margin-top: 25px; margin-bottom: 25px">
 		
@@ -154,7 +168,7 @@
 									<div class="col-sm-4">
 										<div class="radio">
 											<label>
-												<input type="radio" name="devconditions" id="devcondition1" value="devcondition1" checked>
+												<input type="radio" name="devconditions" id="devcondition1" value="mint" checked>
 												<span class="bold">Mint</span>
 												<ul>
 													<li>Functions flawlessly</li>
@@ -167,7 +181,7 @@
 									<div class="col-sm-4">
 										<div class="radio">
 											<label>
-												<input type="radio" name="devconditions" id="devcondition2" value="devcondition2">
+												<input type="radio" name="devconditions" id="devcondition2" value="good">
 												<span class="bold">Good</span>
 												<ul>
 													<li>Functions flawlessly</li>
@@ -180,7 +194,7 @@
 									<div class="col-sm-4">
 										<div class="radio">
 											<label>
-												<input type="radio" name="devconditions" id="devcondition3" value="devcondition3">
+												<input type="radio" name="devconditions" id="devcondition3" value="fair">
 												<span class="bold">Fair</span>
 												<ul>
 													<li>Functions flawlessly</li>
@@ -195,7 +209,7 @@
 									<div class="col-xs-12">
 										<div class="radio">
 											<label>
-												<input type="radio" name="devconditions" id="devcondition4" value="devcondition4">
+												<input type="radio" name="devconditions" id="devcondition4" value="new">
 												<span class="bold">New</span>
 												<ul>
 													<li>Never activated, rooted, or refurbished</li>
@@ -216,8 +230,7 @@
 						<div class="form-group">
 							<label for="dmgdescription">Damage Description / Repair History:</label>
 							<p>Please describe any imperfections, damage the device has sustained, and/or repairs made. Leave blank for none.</p>
-							<textarea id="dmgdescription" name="dmgdescription" class="form-control" rows="5" maxlength="1500">
-							</textarea>
+							<textarea id="dmgdescription" name="dmgdescription" class="form-control" rows="5" maxlength="1500"></textarea>
 						</div>
 
 
@@ -228,10 +241,10 @@
 							<span class="bold">Refurbished?:</span>
 							<p>Is this a refurbished and/or rebuilt device?</p>
 							<label class="radio-inline">
-								<input type="radio" name="refurbishedoptions" id="refurbishedoption1" value="refurbishedoption1"> Yes
+								<input type="radio" name="refurbishedoptions" id="refurbishedoption1" value="1"> Yes
 							</label>
 							<label class="radio-inline">
-								<input type="radio" name="refurbishedoptions" id="refurbishedoption2" value="refurbishedoption2" checked> No
+								<input type="radio" name="refurbishedoptions" id="refurbishedoption2" value="0" checked> No
 							</label>
 						</div>
 
@@ -247,10 +260,10 @@
 							<span class="bold">Original Owner?:</span>
 							<p>Are you the original owner of the device? Answer No if you did not buy this device brand new from a reputable retailer.</p>
 							<label class="radio-inline">
-								<input type="radio" name="originalowneroptions" id="originalowneroption1" value="originalowneroption1"> Yes
+								<input type="radio" name="originalowneroptions" id="originalowneroption1" value="1"> Yes
 							</label>
 							<label class="radio-inline">
-								<input type="radio" name="originalowneroptions" id="originalowneroption2" value="originalowneroption2" checked> No
+								<input type="radio" name="originalowneroptions" id="originalowneroption2" value="0" checked> No
 							</label>
 						</div>
 					</div>
@@ -353,23 +366,23 @@
 							<table class="table table-bordered">
 								<tbody>
 									<tr>
-										<td><input type="checkbox" name="chboxoriginalbox" id="chboxoriginalbox" value="originalbox"></td>
+										<td><input type="checkbox" name="accessories[]" id="accessories" value="originalbox"></td>
 										<td>Origial Box</td>
 									</tr>
 									<tr>
-										<td><input type="checkbox" name="chboxusbcable" name="chboxusbcable" id="chboxusbcable" value="usbcable"></td>
+										<td><input type="checkbox" name="accessories[]" id="accessories" value="usbcable"></td>
 										<td>USB Cable</td>
 									</tr>
 									<tr>
-										<td><input type="checkbox" name="chboxacadapter" id="chboxacadapter" value="acadapter"></td>
+										<td><input type="checkbox" name="accessories[]" id="accessories" value="acadapter"></td>
 										<td>A/C Adapter</td>
 									</tr>
 									<tr>
-										<td><input type="checkbox" name="chboxmicrosdcard" id="chboxmicrosdcard" value="microsdcard"></td>
+										<td><input type="checkbox" name="accessories[]" id="accessories" value="microsdcard"></td>
 										<td>MicroUSD Card</td>
 									</tr>
 									<tr>
-										<td><input type="checkbox" name="chboxmicrosdcard" id="chboxcarcharger" value="carcharger"></td>
+										<td><input type="checkbox" name="accessories[]" id="accessories" value="carcharger"></td>
 										<td>Car Charger</td>
 									</tr>
 								</tbody>
@@ -408,6 +421,7 @@
 				</div>
 
 				<input type="submit" value="Create new Listing" class="btn btn-success btn-lg btn-block">
+				<input type="hidden" name="category" value="{{ $category }}">
 				<input type="hidden" name="_token" value="{{ Session::token() }}">
 			</form>
 		</div>
