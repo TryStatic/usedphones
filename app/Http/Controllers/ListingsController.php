@@ -126,7 +126,8 @@ class ListingsController extends Controller
      */
     public function show($id)
     {
-        return "Showid";
+        $listing = Listing::find($id);
+        return view('listings/show')->withListing($listing);
     }
 
     /**
