@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-Use App\Listing;
 use Illuminate\Validation\Rule;
+Use App\Listing;
 
 class ListingsController extends Controller
 {
@@ -15,6 +15,8 @@ class ListingsController extends Controller
      */
     public function index()
     {
+    
+
         return "index";
     }
 
@@ -59,8 +61,61 @@ class ListingsController extends Controller
             'category' => 'required|in:iphone,ipad,smartphone,tablet',
         ]);
 
+        $listing = new Listing();
 
-        return dump($request);
+        $listing->headline             = $request->headline;
+        $listing->description          = $request->description;
+        $listing->category             = $request->category;
+        $listing->condition            = $request->devconditions;
+        $listing->dmgdescription       = $request->dmgdescription;
+        $listing->refurbished          = $request->refurbishedoptions;
+        $listing->originalowner        = $request->originalowneroptions;
+        $listing->askingprice          = $request->askprice;
+        $listing->paypalemail          = $request->ppemail;
+        $listing->devicecolor          = $request->devicecolors;
+        $listing->devicestorage        = $request->devicestorage;
+
+        if( !is_null($request->accessories) ) {
+            if( in_array("originalbox", $request->accessories) )
+                $listing->boxincluded = true; 
+            else 
+                $listing->boxincluded = false;
+
+            if( in_array("usbcable", $request->accessories) )
+                $listing->usbincluded = true;
+            else
+                $listing->usbincluded = false;
+
+            if( in_array("acadapter", $request->accessories) )
+                $listing->adapterincluded = true;
+            else
+                $listing->adapterincluded = false;
+
+            if( in_array("microsdcard", $request->accessories) )
+                $listing->microsdincluded = true;
+            else
+                $listing->microsdincluded = false;
+
+            if( in_array("carcharger", $request->accessories) )
+                $listing->carchargedincluded = true;
+            else
+                $listing->carchargedincluded = false;
+
+        } else {
+            $listing->boxincluded = false; 
+            $listing->usbincluded = false; 
+            $listing->adapterincluded = false; 
+            $listing->microsdincluded = false; 
+            $listing->carchargedincluded = false; 
+        }
+
+        $listing->country              = $request->country;
+        $listing->shiplocation         = $request->shiplocation;
+
+        $listing->save();
+    
+
+        return $listing['id'];
     }
 
     /**

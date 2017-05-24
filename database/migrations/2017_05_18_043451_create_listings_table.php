@@ -17,6 +17,7 @@ class CreateListingsTable extends Migration
             $table->increments('id');
             $table->string('headline', 64);
             $table->text('description');
+            $table->enum('category', ['iphone', 'smartphone', 'ipad', 'tablet']);
             $table->enum('condition', ['mint', 'good', 'fair', 'new']);
             $table->text('dmgdescription')->nullable();
             $table->boolean('refurbished');
@@ -28,7 +29,7 @@ class CreateListingsTable extends Migration
             $table->boolean('boxincluded');
             $table->boolean('usbincluded');
             $table->boolean('adapterincluded');
-            $table->boolean('microusbincluded');
+            $table->boolean('microsdincluded');
             $table->boolean('carchargedincluded');
             $table->string('country', 10);
             $table->string('shiplocation', 64);
