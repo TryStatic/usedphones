@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+Use App\Listing;
+use Illuminate\Validation\Rule;
 
 class ListingsController extends Controller
 {
@@ -38,8 +40,27 @@ class ListingsController extends Controller
      */
     public function store(Request $request)
     {
-        $listing = new listing();
-        return "Stored";
+
+        // Validate the data coming from the form
+       $this->validate($request, [
+            'headline' => 'required|min:6|max:255',
+            'description' => 'required|min:20|max:3000',
+            'devconditions' => 'required|in:mint,good,fair,new',
+            'dmgdescription' => 'nullable',
+            'refurbishedoptions' => 'required|boolean',
+            'originalowneroptions' => 'required|boolean',
+            'askprice' => 'required|numeric',
+            'ppemail' => 'required|email',
+            'devicecolors' => 'required|in:Black,Blue,Gold,White',
+            'devicestorage' => 'required|in:16GB,32GB,64GB,128GB',
+            'accessories' => 'nullable',
+            'country' => 'required',
+            'shiplocation' => 'required',
+            'category' => 'required|in:iphone,ipad,smartphone,tablet',
+        ]);
+
+
+        return dump($request);
     }
 
     /**
