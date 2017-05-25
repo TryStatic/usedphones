@@ -9,6 +9,8 @@ use Session;
 
 class ListingsController extends Controller
 {
+
+    private $fee = 20;
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +33,7 @@ class ListingsController extends Controller
         if($category == null) // If the category is null or is not one of the valid categories hard coded.
             return view('listings/category'); // Show him the category selection view.
         else if($this->validCategory($category))
-            return view('listings/create', ['category' => $category]); // Otherwise forward him to the create listing view
+            return view('listings/create', ['category' => $category, 'fee' => $this->fee]); // Otherwise forward him to the create listing view
         else return "404"; // TODO: Add actual 404
     }
 
@@ -59,6 +61,7 @@ class ListingsController extends Controller
             'accessories' => 'nullable',
             'country' => 'required',
             'shiplocation' => 'required',
+            'brand' => 'required',
             'category' => 'required|in:iphone,ipad,smartphone,tablet',
         ]);
 
@@ -66,12 +69,13 @@ class ListingsController extends Controller
 
         $listing->headline             = $request->headline;
         $listing->description          = $request->description;
+        $listing->brand                = $request->brand;
         $listing->category             = $request->category;
         $listing->condition            = $request->devconditions;
         $listing->dmgdescription       = $request->dmgdescription;
         $listing->refurbished          = $request->refurbishedoptions;
         $listing->originalowner        = $request->originalowneroptions;
-        $listing->askingprice          = $request->askprice;
+        $listing->askingprice          = $request->askprice + $this->fee;
         $listing->paypalemail          = $request->ppemail;
         $listing->devicecolor          = $request->devicecolors;
         $listing->devicestorage        = $request->devicestorage;
@@ -112,6 +116,7 @@ class ListingsController extends Controller
 
         $listing->country              = $request->country;
         $listing->shiplocation         = $request->shiplocation;
+        $listing->featured             = false;
 
         $listing->save();
     
@@ -129,6 +134,10 @@ class ListingsController extends Controller
     public function show($id)
     {
         $listing = Listing::find($id);
+
+        if($listing == null)
+            return 404;
+
         return view('listings/show')->withListing($listing);
     }
 

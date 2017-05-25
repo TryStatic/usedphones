@@ -17,6 +17,7 @@ class CreateListingsTable extends Migration
             $table->increments('id');
             $table->string('headline', 64);
             $table->text('description');
+            $table->string('brand', 64);
             $table->enum('category', ['iphone', 'smartphone', 'ipad', 'tablet']);
             $table->enum('condition', ['mint', 'good', 'fair', 'new']);
             $table->text('dmgdescription')->nullable();
@@ -33,6 +34,7 @@ class CreateListingsTable extends Migration
             $table->boolean('carchargedincluded');
             $table->string('country', 10);
             $table->string('shiplocation', 64);
+            $table->boolean('featured');
             $table->timestamps();
 
         });

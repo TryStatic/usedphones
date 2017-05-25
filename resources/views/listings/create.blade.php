@@ -21,7 +21,7 @@
 			step: 10
 	    });
 		$('.aSpinEdit').on("valueChanged", function (e) {
-			finalval = e.value + 20.0;
+			finalval = e.value + {{ $fee }};
 			$('.finalval').text(finalval.toFixed(2));
 	    });
 
@@ -33,6 +33,9 @@
 		            headline: {
 		                minlength: 6,
 		                required: true
+		            },
+		            brand: {
+		            	required: true
 		            },
 		            description: {
 		            	minlength: 20,
@@ -127,7 +130,12 @@
 							<input id="headline" name="headline" class="form-control">
 						</div>
 
-
+						<!-- Headline -->
+						<div class="form-group">
+							<label for="brand">Brand *:</label>
+							<p>Please enter the brand of your listing.</p>
+							<input id="brand" name="brand" class="form-control">
+						</div>
 
 
 						<!-- Description -->
@@ -290,7 +298,7 @@
 					                </div>
 					            </div>
 					        </div>
-							<div class="col-sm-9 vparent"><span class="vchild">&nbsp;+&nbsp;&nbsp;&nbsp;20&euro; (Sale Fee)&nbsp;&nbsp;= <span class="finalval bold">230.00</span>&euro; (Total Price shown to Buyers)</span></div>
+							<div class="col-sm-9 vparent"><span class="vchild">&nbsp;+&nbsp;&nbsp;&nbsp; {{ $fee }}&euro; (Sale Fee)&nbsp;&nbsp;= <span class="finalval bold">230.00</span>&euro; (Total Price shown to Buyers)</span></div>
 						</div>
 
 
