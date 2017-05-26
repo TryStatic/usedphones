@@ -51,7 +51,7 @@ class ListingsController extends Controller
             'headline' => 'required|min:6|max:255',
             'description' => 'required|min:20|max:3000',
             'devconditions' => 'required|in:mint,good,fair,new',
-            'dmgdescription' => 'nullable',
+            'dmgdescription' => 'nullable|max:255',
             'refurbishedoptions' => 'required|boolean',
             'originalowneroptions' => 'required|boolean',
             'askprice' => 'required|numeric',
@@ -59,9 +59,9 @@ class ListingsController extends Controller
             'devicecolors' => 'required|in:Black,Blue,Gold,White',
             'devicestorage' => 'required|in:16GB,32GB,64GB,128GB',
             'accessories' => 'nullable',
-            'country' => 'required',
-            'shiplocation' => 'required',
-            'brand' => 'required',
+            'country' => 'required|max:255',
+            'shiplocation' => 'required|max:255',
+            'brand' => 'required|max:255',
             'category' => 'required|in:iphone,ipad,smartphone,tablet',
         ]);
 
