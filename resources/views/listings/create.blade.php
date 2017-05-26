@@ -134,7 +134,11 @@
 						<div class="form-group">
 							<label for="brand">Brand *:</label>
 							<p>Please enter the brand of your listing.</p>
-							<input id="brand" name="brand" class="form-control">
+							@if ($category == "iphone" || $category== "ipad")
+								<input id="brand" name="brand" class="form-control" value="Apple" readonly="readonly">
+							@else
+								<input id="brand" name="brand" class="form-control">
+							@endif
 						</div>
 
 

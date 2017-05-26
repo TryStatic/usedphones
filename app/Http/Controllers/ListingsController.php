@@ -18,9 +18,9 @@ class ListingsController extends Controller
      */
     public function index()
     {
-    
+        $listings = Listing::all();
 
-        return "index";
+        return view('listings/index')->withListings($listings);
     }
 
     /**
@@ -69,7 +69,12 @@ class ListingsController extends Controller
 
         $listing->headline             = $request->headline;
         $listing->description          = $request->description;
-        $listing->brand                = $request->brand;
+
+        if($request->category == "iphone" || $request->category == "ipad")
+            $listing->brand = "Apple";
+        else
+            $listing->brand = $request->brand;
+
         $listing->category             = $request->category;
         $listing->condition            = $request->devconditions;
         $listing->dmgdescription       = $request->dmgdescription;
