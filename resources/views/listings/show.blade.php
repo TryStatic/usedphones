@@ -54,6 +54,14 @@
 
 <div class="panel panel-default" style="margin-top: 25px; margin-bottom: 25px">
 	<div class="row cont" style="margin-top: 10px; margin-bottom: 10px">
+
+
+		<div class="row panel panel-success">
+			<div class="col-xs-12 text-center panel-body">
+				<button type="button" class="btn btn-primary">Edit</button>
+				<button type="button" class="btn btn-danger">Delete</button>
+			</div>
+		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<div class="wrapper">
 				<div class="row">
@@ -213,6 +221,4 @@
 	</div>
 
 </div>
-
-<?php var_dump($listing) ?>
 @endsection
