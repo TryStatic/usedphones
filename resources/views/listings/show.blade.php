@@ -55,11 +55,22 @@
 <div class="panel panel-default" style="margin-top: 25px; margin-bottom: 25px">
 	<div class="row cont" style="margin-top: 10px; margin-bottom: 10px">
 
-
 		<div class="row panel panel-success">
-			<div class="col-xs-12 text-center panel-body">
-				<button type="button" class="btn btn-primary">Edit</button>
-				<button type="button" class="btn btn-danger">Delete</button>
+			<div class="col-xs-6 text-right panel-body">
+				
+				<form action="{{ URL::route('listings.edit',$listing->id) }}" method="POST">
+				    <input type="hidden" name="_method" value="GET">
+    				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+    				<button class="btn btn-primary">Edit</button>
+				</form>
+			</div>
+			<div class="col-xs-6 text-left panel-body">
+			
+				<form action="{{ URL::route('listings.destroy',$listing->id) }}" method="POST">
+				    <input type="hidden" name="_method" value="DELETE">
+    				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+    				<button class="btn btn-danger">Delete</button>
+				</form>
 			</div>
 		</div>
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

@@ -154,7 +154,10 @@ class ListingsController extends Controller
      */
     public function edit($id)
     {
-        return "edit";
+
+        $listing = Listing::find($id);
+
+        return view('listings/edit')->withListing($listing);
     }
 
     /**
@@ -177,7 +180,12 @@ class ListingsController extends Controller
      */
     public function destroy($id)
     {
-        return "destroy";
+
+        $listing = Listing::find($id);
+
+        $listing->delete();
+        Session::flash('success', 'You have successfully deleted that listing.');
+        return redirect()->route('listings.index');
     }
 
     private function validCategory($category) {

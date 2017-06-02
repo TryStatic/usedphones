@@ -26,6 +26,8 @@
     		<tr>
     			<td> {{ $listing->id }} </td>
     			<td> {{ $listing->headline }} </td>
+          <td> Edit </td>
+          <td> View </td>
     		</tr>
     	@endforeach
     </tbody>
