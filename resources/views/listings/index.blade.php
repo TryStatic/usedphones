@@ -24,6 +24,11 @@
     right: 0;
   }
 
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 </style>
 
 
@@ -36,11 +41,11 @@
 
     <div class="row">
       <div class="col-xs-6">
-        <p>Searcbart</p>
+        <p>Viewing listings...</p>
         <p>Found <span style="font-weight: bold">{{ $listings->count() }}</span> results.</p>
       </div>
       <div class="col-xs-6 text-right">
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sort
           <span class="caret"></span></button>
           <ul class="dropdown-menu pull-right">
             <li><a href="#">Time: Newly Created</a></li>
@@ -57,10 +62,10 @@
           <img src="http://placehold.it/200x200">
         </div>
         <div class="col-xs-9">
-          <h4><a href="#">{{ $listing->headline }}</a></h4>
+          <h4><a href="{{ URL::route('listings.show',$listing->id) }}">@if($listing->featured)<span class="glyphicon glyphicon-star" aria-hidden="true" style="color: #FFBF00; font-size: 25px"></span>@endif{{ $listing->headline }}</a></h4>
           <p>{{ $listing->condition }}</p>
-          <p style=""><span style="font-size: 155%">Price: <span style="font-weight: bold">{{ $listing->price }}</span></span>&emsp;Country: {{ $listing->Country }}</p>
-          <p>{{ $listing->description }}</p>
+          <p style=""><span style="font-size: 155%">Price: <span style="font-weight: bold">{{ $listing->askingprice }}&euro;</span></span>&emsp;Country: {{ $listing->country }}</p>
+          <p class="ellipsis">{{ $listing->description }}</p>
         </div>
       </div>
       <hr />
@@ -68,5 +73,6 @@
 
     </div>
   </div>
+
 
 @endsection
