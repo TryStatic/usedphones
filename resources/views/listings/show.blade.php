@@ -84,11 +84,13 @@
 					<h2 class="text-center">{{ $listing->headline }}</h2>
 				</div>
 				<div class="row text-center">
-					<div class="inline"><span class="label label-primary">Featured</span></div>
-					<div class="inline"><span class="label label-default">32GB</span></div>
-					<div class="inline"><span class="label label-default">Mint</span></div>
-					<div class="inline"><span class="label label-default">Iphone</span></div>
-					<div class="inline"><span class="label label-default">Smartphone</span></div>
+					@if($listing->featured)
+						<div class="inline"><span class="label label-primary">Featured</span></div>
+					@endif
+					<div class="inline"><span class="label label-default">{{ $listing->devicestorage }}</span></div>
+					<div class="inline"><span class="label label-default">{{ $listing->condition }}</span></div>
+					<div class="inline"><span class="label label-default">{{ $listing->brand }}</span></div>
+					<div class="inline"><span class="label label-default">{{ $listing->category }}</span></div>
 				</div>
 				<br /><br />
 				<div class="row">

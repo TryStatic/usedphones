@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 Use App\Listing;
 use Session;
 
@@ -193,5 +194,54 @@ class ListingsController extends Controller
         if($category == "iphone" || $category == "ipad" || $category == "smartphone" || $category == "tablet")
             return true;
         return false;
+    }
+
+    public static function getFourRandomFeatured()
+    {
+        // Get ALL the featured listings from the database.
+        $featuredListings = DB::table('listings')->where('featured', '=', '1')->get();
+
+        
+
+        if($featuredListings->count() > 4)
+        { // More than four.
+            $featuredListings = $featuredListings->shuffle(); // Shuffle them
+            return $featuredListings->slice(0,4); // Return the first 4 from the collection
+        }
+        else if($featuredListings->count() == 4)
+        { // Exactly four
+             return $featuredListings; // Just return them
+        }
+        else 
+        { // Less than four, this one's tricky, we need to populate the missing one(s) with non-featured listings.
+            
+            // How many more do we need?
+            $amountWeHave = $featuredListings->count(); // We have this many.
+            // But: amountWeHave + amountWeNeed = 4   =>   amountWeNeed = 4 - amountWeHave;
+            $amountWeNeed = 4 - $amountWeHave;
+
+            $nonFeaturedListings = DB::table('listings')->where('featured', '=', '0')->get();
+
+            if($nonFeaturedListings->count() <= $amountWeNeed)
+            { // Means what we need is exactly or less than what we have.
+                // Either case, we just add it to the collection for featured listings
+                foreach ($nonFeaturedListings as $nonFeatruedListing) {
+                    $featuredListings->push($nonFeaturedListings->pop());
+                }
+            }
+            else
+            {
+                // Ok, more than the amount of non-featured listings we need came through, let's shuffle them.
+                $nonFeaturedListings = $nonFeaturedListings->shuffle();
+
+                for($i=0;$i<$amountWeNeed;$i++) {
+                    $featuredListings->push($nonFeaturedListings->pop());
+                }
+            }
+
+            // Either case, you return the featured listings. Should always be 4.
+            return $featuredListings;
+
+        }
     }
 }

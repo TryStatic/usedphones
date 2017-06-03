@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 class PagesController extends Controller {
 	/*	--- Typical Controller procedure --- 
 		# process variable data or params
@@ -11,7 +12,8 @@ class PagesController extends Controller {
 		# pass that data to the correct view
 	*/
 	public function getHome() {
-		return view('home');
+		$featured = ListingsController::getFourRandomFeatured();
+		return view('home')->withFeatured($featured);
 	}
 
 	public function getAbout() {

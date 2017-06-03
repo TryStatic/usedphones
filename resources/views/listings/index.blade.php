@@ -32,7 +32,7 @@
 </style>
 
 
-<div class="panel panel-default" style="margin-top: 25px; margin-bottom: 25px">
+<div class="panel panel-default" style="margin-top: 25px; margin-bottom: 25px;">
 
 
   <div class="cont-wrapper" style="margin: 10px;">
@@ -58,15 +58,16 @@
 
       @foreach($listings as $listing)
       <div class="row">
-        <div class="col-xs-3 text-center">
-          <img src="http://placehold.it/200x200">
+        <div class="col-md-3">
+          <img class="img-thumbnail" src="http://placehold.it/200x200">
         </div>
-        <div class="col-xs-9">
+        <div class="col-md-7">
           <h4><a href="{{ URL::route('listings.show',$listing->id) }}">@if($listing->featured)<span class="glyphicon glyphicon-star" aria-hidden="true" style="color: #FFBF00; font-size: 25px"></span>@endif{{ $listing->headline }}</a></h4>
           <p>{{ $listing->condition }}</p>
           <p style=""><span style="font-size: 155%">Price: <span style="font-weight: bold">{{ $listing->askingprice }}&euro;</span></span>&emsp;Country: {{ $listing->country }}</p>
           <p class="ellipsis">{{ $listing->description }}</p>
         </div>
+        <div class="col-md-2"></div>
       </div>
       <hr />
       @endforeach

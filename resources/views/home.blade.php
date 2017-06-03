@@ -45,6 +45,11 @@
             height: auto;
         }
 
+        .ellipsis {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
     </style>
 
 
@@ -65,7 +70,6 @@
         </div>
     </div>
 
-
     <!-- Row 2 -->
     <div class="container-fluid custom-row2 text-center">
 
@@ -74,119 +78,35 @@
                 <h2>Featured Listings</h2>
             </div>
         </div>
-        <div class="row">
-            <!-- Listing A -->
+        
+        @foreach($featured as $feat)
             <div class="col-sm-3">
                 <div class="thumbnail" >
-                    <h4><span class="label label-info">BRAND</span></h4>
-                    <img src="http://placehold.it/650x450&text=Product A" class="img-responsive">
-                    <div class="caption">
-                        <div class="row">
-                            <div class="col-md-6 col-xs-6">
-                                <h3>Listing Title</h3>
-                            </div>
-                            <div class="col-md-6 col-xs-6 price">
-                                <h3>
-                                    <label>xxx,xx&euro;</label></h3>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p>Product Description</p>
-                            </div>
-                            <div class="col-md-6">
-                                <a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a></div>
-                        </div>
-
-                        <p> </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Listing B -->
-            <div class="col-sm-3">
-                <div class="thumbnail" >
-                    <h4><span class="label label-info">BRAND</span></h4>
+                    <h4><span class="label label-info">{{ $feat->brand }}</span></h4>
                     <img src="http://placehold.it/650x450&text=Product B" class="img-responsive">
                     <div class="caption">
                         <div class="row">
                             <div class="col-md-6 col-xs-6">
-                                <h3>Listing Title</h3>
+                                <h3 class="ellipsis">@if($feat->featured)<span class="glyphicon glyphicon-star" aria-hidden="true" style="color: #FFBF00; font-size: 25px"></span>@endif{{ $feat->headline }}</h3>
                             </div>
                             <div class="col-md-6 col-xs-6 price">
                                 <h3>
-                                    <label>xxx,xx&euro;</label></h3>
+                                    <label>{{ $feat->askingprice }}&euro;</label></h3>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <p>Product Description</p>
+                                <p class="ellipsis">{{ $feat->description }}</p>
                             </div>
                             <div class="col-md-6">
-                                <a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a></div>
+                                <a href="{{ URL::route('listings.show',$feat->id) }}" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a></div>
                         </div>
 
                         <p> </p>
                     </div>
                 </div>
             </div>
-
-            <!-- Listing C -->
-            <div class="col-sm-3">
-                <div class="thumbnail" >
-                    <h4><span class="label label-info">BRAND</span></h4>
-                    <img src="http://placehold.it/650x450&text=Product C" class="img-responsive">
-                    <div class="caption">
-                        <div class="row">
-                            <div class="col-md-6 col-xs-6">
-                                <h3>Listing Title</h3>
-                            </div>
-                            <div class="col-md-6 col-xs-6 price">
-                                <h3>
-                                    <label>xxx,xx&euro;</label></h3>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p>Product Description</p>
-                            </div>
-                            <div class="col-md-6">
-                                <a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a></div>
-                        </div>
-
-                        <p> </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Listing D -->
-            <div class="col-sm-3">
-                <div class="thumbnail" >
-                    <h4><span class="label label-info">BRAND</span></h4>
-                    <img src="http://placehold.it/650x450&text=Product D" class="img-responsive">
-                    <div class="caption">
-                        <div class="row">
-                            <div class="col-md-6 col-xs-6">
-                                <h3>Listing Title</h3>
-                            </div>
-                            <div class="col-md-6 col-xs-6 price">
-                                <h3>
-                                    <label>xxx,xx&euro;</label></h3>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p>Product Description</p>
-                            </div>
-                            <div class="col-md-6">
-                                <a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Buy</a></div>
-                        </div>
-
-                        <p> </p>
-                    </div>
-                </div>
-            </div>
-
+        @endforeach
 
         </div>
     </div>
