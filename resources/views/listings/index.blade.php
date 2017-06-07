@@ -87,7 +87,7 @@ p {
 
 <div class="container panel panel-default" style="padding: 10px">
     <div class="well well-sm">
-        <strong>There are total {{ $listings->count() }} results.</strong>
+        <strong>You are viewing page {{ $listings->currentPage() }} with {{ $listings->count() }} result(s) out of total {{ $total }} listing(s).</strong>
 
     </div>
 
@@ -118,6 +118,11 @@ p {
         </div>
         @endforeach
 
+        <div class="row text-center">
+          <div class="col-xs-12">
+            {!! $listings->links(); !!}
+          </div>
+        </div>
     </div>
 </div>
 

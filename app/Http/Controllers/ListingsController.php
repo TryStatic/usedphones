@@ -19,9 +19,10 @@ class ListingsController extends Controller
      */
     public function index()
     {
-        $listings = Listing::all();
+        $listings = Listing::orderBy('id', 'desc')->paginate(6);
+        $totalListings = Listing::count();
 
-        return view('listings/index')->withListings($listings);
+        return view('listings/index')->withListings($listings)->withTotal($totalListings);
     }
 
     /**
