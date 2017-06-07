@@ -7,73 +7,119 @@
 @section('additional_scripts')
 
 
+
 @endsection
 
 
 @section('maincontent') {{-- This is the main content that this file will be providing to the master layout --}}
 
-<style>
+<style type="text/css">
+.glyphicon { margin-right:5px; }
+.thumbnail
+{
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
 
-  .bottom-align-text-parent {
-      position: relative;
-  }
+.item.list-group-item
+{
+    float: none;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
+{
+    background: #428bca;
+}
 
-  .bottom-align-text {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
+.item.list-group-item .list-group-image
+{
+    margin-right: 10px;
+}
+.item.list-group-item .thumbnail
+{
+    margin-bottom: 0px;
+}
+.item.list-group-item .caption
+{
+    padding: 9px 9px 0px 9px;
+}
+.item.list-group-item:nth-of-type(odd)
+{
+    background: #eeeeee;
+}
+
+.item.list-group-item:before, .item.list-group-item:after
+{
+    display: table;
+    content: " ";
+}
+
+.item.list-group-item img
+{
+    float: left;
+}
+.item.list-group-item:after
+{
+    clear: both;
+}
+.list-group-item-text
+{
+    margin: 0 0 11px;
+}
+
+p {
+  word-wrap: break-word;
+}
 
 .ellipsis {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
 </style>
 
 
-<div class="panel panel-default" style="margin-top: 25px; margin-bottom: 25px;">
-
-
-  <div class="cont-wrapper" style="margin: 10px;">
-
-
-
-    <div class="row">
-      <div class="col-xs-6">
-        <p>Viewing listings...</p>
-        <p>Found <span style="font-weight: bold">{{ $listings->count() }}</span> results.</p>
-      </div>
-      <div class="col-xs-6 text-right">
-        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Sort
-          <span class="caret"></span></button>
-          <ul class="dropdown-menu pull-right">
-            <li><a href="#">Time: Newly Created</a></li>
-            <li><a href="#">Price: Lowest First</a></li>
-            <li><a href="#">Price: Highest First</a></li>
-          </ul>
-        </div>
-      </div>
-      <hr />
-
-      @foreach($listings as $listing)
-      <div class="row">
-        <div class="col-md-3">
-          <img class="img-thumbnail" src="http://placehold.it/200x200">
-        </div>
-        <div class="col-md-7">
-          <h4><a href="{{ URL::route('listings.show',$listing->id) }}">@if($listing->featured)<span class="glyphicon glyphicon-star" aria-hidden="true" style="color: #FFBF00; font-size: 25px"></span>@endif{{ $listing->headline }}</a></h4>
-          <p>{{ $listing->condition }}</p>
-          <p style=""><span style="font-size: 155%">Price: <span style="font-weight: bold">{{ $listing->askingprice }}&euro;</span></span>&emsp;Country: {{ $listing->country }}</p>
-          <p class="ellipsis">{{ $listing->description }}</p>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-      <hr />
-      @endforeach
+<div class="container panel panel-default" style="padding: 10px">
+    <div class="well well-sm">
+        <strong>There are total {{ $listings->count() }} results.</strong>
 
     </div>
-  </div>
+
+    <div id="products" class="row list-group">
+    @foreach($listings as $listing)
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="http://placehold.it/400x250/000/fff" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        @if($listing->featured)
+                            <span class="glyphicon glyphicon-star" aria-hidden="true" style="color: #FFBF00; font-size: 15px"></span>
+                        @endif
+                        {{ $listing->headline }}</h4>
+                    <p class="group inner list-group-item-text ellipsis">
+                       {{ $listing->description }}</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                Price: <span style="font-weight: bold">{{ $listing->askingprice }}</span>&euro; Country: {{ $listing->country }}</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a class="btn btn-primary" href="{{ URL::route('listings.show',$listing->id) }}">View Listing</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+
+    </div>
+</div>
 
 
 @endsection
