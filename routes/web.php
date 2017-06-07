@@ -13,11 +13,8 @@
 
 
 Route::get('/', 'PagesController@getHome');
-
 Route::get('about', 'PagesController@getAbout');
-
 Route::get('faq', 'PagesController@getFaq');
-
 Route::get('support', 'PagesController@getSupport');
 
 

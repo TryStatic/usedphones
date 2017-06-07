@@ -5,7 +5,7 @@
                         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                             <h3> Buy</h3>
                             <ul>
-                                <li><a href="#"> View Listings </a></li>
+                                <li><a href="/listings"> View Listings </a></li>
                                 <li><a href="#"> Buy Iphone </a></li>
                                 <li><a href="#"> Buy Smartphone </a></li>
                                 <li><a href="#"> Buy Tablet </a></li>
@@ -14,9 +14,8 @@
                         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                             <h3> SELL </h3>
                             <ul>
-                                <li><a href="#"> Create Sell Listing </a></li>
-                                <li><a href="#"> View Sell Orders </a></li>
-                                <li><a href="#"> Edit your Listing </a></li>
+                                <li><a href="/listings/create"> Create Sell Listing </a></li>
+                                <li><a href="/listings/"> View Sell Orders </a></li>
                             </ul>
                         </div>
                         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
